@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Generate AdBlocker Icons</title>
+</head>
+<body>
+  <h2>AdBlocker Icon Generator</h2>
+  <p>Right-click each canvas and save as PNG with the specified name</p>
+  
+  <h3>icon16.png</h3>
+  <canvas id="icon16" width="16" height="16"></canvas>
+  
+  <h3>icon48.png</h3>
+  <canvas id="icon48" width="48" height="48"></canvas>
+  
+  <h3>icon128.png</h3>
+  <canvas id="icon128" width="128" height="128"></canvas>
+
+  <script>
+    function drawIcon(canvas) {
+      const ctx = canvas.getContext('2d');
+      const size = canvas.width;
+      
+      const gradient = ctx.createLinearGradient(0, 0, size, size);
+      gradient.addColorStop(0, '#667eea');
+      gradient.addColorStop(1, '#764ba2');
+      
+      const radius = size * 0.1875;
+      ctx.fillStyle = gradient;
+      ctx.beginPath();
+      ctx.moveTo(radius, 0);
+      ctx.lineTo(size - radius, 0);
+      ctx.quadraticCurveTo(size, 0, size, radius);
+      ctx.lineTo(size, size - radius);
+      ctx.quadraticCurveTo(size, size, size - radius, size);
+      ctx.lineTo(radius, size);
+      ctx.quadraticCurveTo(0, size, 0, size - radius);
+      ctx.lineTo(0, radius);
+      ctx.quadraticCurveTo(0, 0, radius, 0);
+      ctx.fill();
+      
+      ctx.strokeStyle = 'white';
+      ctx.lineWidth = size * 0.09375;
+      ctx.lineCap = 'round';
+      
+      ctx.beginPath();
+      ctx.arc(size/2, size/2, size * 0.21875, 0, Math.PI * 2);
+      ctx.stroke();
+      
+      ctx.strokeStyle = '#ff4444';
+      ctx.lineWidth = size * 0.0625;
+      ctx.beginPath();
+      ctx.moveTo(size * 0.375, size * 0.375);
+      ctx.lineTo(size * 0.625, size * 0.625);
+      ctx.moveTo(size * 0.625, size * 0.375);
+      ctx.lineTo(size * 0.375, size * 0.625);
+      ctx.stroke();
+    }
+    
+    drawIcon(document.getElementById('icon16'));
+    drawIcon(document.getElementById('icon48'));
+    drawIcon(document.getElementById('icon128'));
+  </script>
+</body>
+</html>

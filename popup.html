@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Storm AdBlocker</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">
+        <img src="icons/icon48.png" alt="Storm">
+        <h1>Storm</h1>
+      </div>
+      <div class="toggle-container">
+        <label class="switch">
+          <input type="checkbox" id="enableToggle" checked>
+          <span class="slider"></span>
+        </label>
+      </div>
+    </header>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-icon">🚫</div>
+        <div class="stat-value" id="adsBlocked">0</div>
+        <div class="stat-label">Ads Blocked</div>
+      </div>
+      
+      <div class="stat-card">
+        <div class="stat-icon">🔒</div>
+        <div class="stat-value" id="trackersBlocked">0</div>
+        <div class="stat-label">Trackers Blocked</div>
+      </div>
+      
+      <div class="stat-card">
+        <div class="stat-icon">💾</div>
+        <div class="stat-value" id="dataSaved">0 KB</div>
+        <div class="stat-label">Data Saved</div>
+      </div>
+      
+      <div class="stat-card">
+        <div class="stat-icon">🌐</div>
+        <div class="stat-value" id="sitesVisited">0</div>
+        <div class="stat-label">Sites Visited</div>
+      </div>
+    </div>
+
+    <div class="current-site">
+      <h3>Current Site</h3>
+      <div class="site-info">
+        <span id="currentDomain">Loading...</span>
+        <button id="whitelistBtn" class="btn-secondary">Whitelist</button>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button id="resetStats" class="btn-secondary">Reset Statistics</button>
+      <button id="openSettings" class="btn-primary">Settings</button>
+    </div>
+
+    <footer>
+      <p>Protecting your privacy and saving data</p>
+      <div class="links">
+        <a href="#" id="aboutLink">About</a>
+        <span>•</span>
+        <a href="#" id="supportLink">Support</a>
+        <span>•</span>
+        <a href="#" id="donateLink">Donate</a>
+      </div>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
